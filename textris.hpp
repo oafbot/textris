@@ -13,13 +13,6 @@
 #include <string>
 #include <vector>
 #include <array>
-#include <map>
-#include <algorithm>
-// #include <iterator>
-#include <iostream>
-
-// #include <set>
-// #include <cstddef>
 
 using namespace std;
 
@@ -33,9 +26,7 @@ using namespace std;
 
 class Game;
 class Block;
-class Mapper;
 class Controller;
-
 
 class Controller{
     public:
@@ -106,15 +97,6 @@ class Block{
         bool traverse(int direction);
         int  convert(int i);
 };
-
-
-class Mapper{
-    public:
-        array<int, 200> field;
-
-        Mapper();
-};
-
 
 extern Game game;
 extern Block block;

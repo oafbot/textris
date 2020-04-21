@@ -122,50 +122,23 @@ void Block::lock(){
     game.cleared = false;
 }
 
-// void Block::lock(){
-//     active = false;
-//     int size = config[type][state].size();
-
-//     for(int i=0; i<size; i++){
-//         if(config[type][state][i]){
-//             int index = convert(i);
-//             game.field[index] = 1;
-
-//             if(index/10<1){
-//                 game.GAME_OVER = true;
-//             }
-//         }
-//     }
-
-//     countdown = 5;
-//     locked = true;
-//     game.cleared = false;
-// }
-
-
-// void Block::lockdown(){
-
-// }
-
 int Block::convert(int i){
     int c = i%4, r = floor(i/4);
     return (y+r)*10 + (x-2)/2 + c;
 }
 
 void Block::render(){
-    // if(active){
-        int c, r;
-        int size = config[type][state].size();
+    int c, r;
+    int size = config[type][state].size();
 
-        for(int i=0; i<size; i++){
-            c = i%4;
-            r = floor(i/4);
+    for(int i=0; i<size; i++){
+        c = i%4;
+        r = floor(i/4);
 
-            if(config[type][state][i]==1){
-                mvprintw(y + r, x-2 + 2*c, "|_|");
-            }
+        if(config[type][state][i]==1){
+            mvprintw(y + r, x-2 + 2*c, "|_|");
         }
-    // }
+    }
 }
 
 bool Block::traverse(int direction){
@@ -198,10 +171,6 @@ bool Block::traverse(int direction){
                     if(x+c*2>=COLS){
                         return false;
                     }
-                    // if((index)%9==0){
-                    //     blocked = "false";
-                    //     return false;
-                    // }
 
                     if(game.field[index + 1]){
                         return false;

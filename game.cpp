@@ -28,11 +28,11 @@ void Game::render(){
 
     block.render();
 
-    // mvprintw(ROWS+2, 0, (to_string(x)+" "+to_string(y)).c_str());
     mvprintw(1, COLS + 5,  ("SCORE: " + to_string(score)).c_str());
     mvprintw(3, COLS + 5,  ("LEVEL: " + to_string(level)).c_str());
     mvprintw(5, COLS + 5,  ("LINES: " + to_string(lines)).c_str());
-    // mvprintw(ROWS+6, 0,  ("COMPLETED: " + to_string(completed)).c_str());
+
+    // mvprintw(ROWS+2, 0, (to_string(x)+" "+to_string(y)).c_str());
 
     // for(int i=0; i<field.size(); i++){
     //     mvprintw(ROWS+4+floor(i/10), i%10, to_string(field[i]).c_str());
@@ -150,7 +150,6 @@ void Game::reset(){
 
 void Game::loop(){
     do{
-        // getmaxyx(stdscr, max_y, max_x);
         controls.input();
 
         if(!PAUSED && !GAME_OVER){
@@ -177,27 +176,6 @@ void Game::loop(){
                     block.countdown--;
                 }
             }
-
-            // if(!block.active){
-            //     if(!block.locked && block.countdown<=0){
-            //         block.active = true;
-            //         block.generate();
-            //         block.countdown = 0;
-            //     }
-            //     else{
-            //         block.countdown--;
-            //         block.locked = true;
-            //     }
-            // }
-            // else{
-            //     if(counter%10==0 && block.traverse(DOWN)){
-            //         y += direction;
-            //     }
-            //     else if(block.active && !block.traverse(DOWN)){
-            //         block.lock();
-            //     }
-            // }
-
 
             if(counter<10000)
                 counter++;
